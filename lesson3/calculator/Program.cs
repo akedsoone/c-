@@ -1,36 +1,35 @@
 ﻿using System.ComponentModel.Design;
 
 int number = 0;
-bool qw = true;
 var al = "";
 
 double addition = 0;
-double additionn = 0;
+double additionn = double.Epsilon;
 double additionA = 0;
 double additionB = 0;
 
 double subtraction = 0;
-double subtractionn = 0;
+double subtractionn = double.Epsilon;
 double subtractionA = 0;
 double subtractionB = 0;
 
 double division = 0;
-double divisionn = 0;
+double divisionn = double.Epsilon;
 double divisionA = 0;
 double divisionB = 0;
 
 double multiplication = 0;
-double multiplicationn = 0;
+double multiplicationn = double.Epsilon;
 double multiplicationA = 0;
 double multiplicationB = 0;
 
 double percent = 0;
-double percentt = 0;
+double percentt = double.Epsilon;
 double percentA = 0;
 double percentB = 0;
 
 double square = 0;
-double squaree = 0;
+double squaree = double.Epsilon;
 double squareA = 0;
 
 do
@@ -144,27 +143,27 @@ do
             break;
 
         case 7:
-            if (addition != 0)
+            if (Math.Abs(additionn) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего сложения {additionA} и {additionB}: {additionn}");
             }
-            if (subtraction != 0)
+            if (Math.Abs(subtractionn) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего вычитания {subtractionB} от {subtractionA}: {subtractionn}");
             }
-            if (division != 0)
+            if (Math.Abs(divisionn) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего деления {divisionA} на {divisionB}: {divisionn}"); 
             }
-            if (multiplication != 0)
+            if (Math.Abs(multiplicationn) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего умножения {multiplicationA} на {multiplicationB}: {multiplicationn}");
             }
-            if (percent != 0)
+            if (Math.Abs(percentt) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего нахождения процента {percentB} от {percentA}: {percentt}");
             }
-            if (square != 0)
+            if (Math.Abs(squaree) != double.Epsilon)
             {
                 Console.WriteLine($"Результат последнего нахождения квадрата числа {squareA}: {squaree}");
             }
@@ -182,7 +181,7 @@ do
         
         if (al == "да" || al == "Да" || al == "Д" || al == "д"|| al == "y" || al == "Y" || al == "yes" || al == "Yes")
         {
-            continue;
+            break;
         }
         else if (al == "нет" || al == "Нет" || al == "Н" || al == "н" || al == "N" || al == "n" || al == "No" || al == "no")
         {
@@ -193,8 +192,8 @@ do
             Console.WriteLine("Напишите да или нет.");
            
         }
-    } while (al != "да");
+    } while (true);
     
-} while (qw);
+} while (true);
 
 
