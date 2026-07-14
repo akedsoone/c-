@@ -1,31 +1,36 @@
 ﻿using System.ComponentModel.Design;
 
 int number = 0;
-bool qw = true;
 var al = "";
 
-int? addition = null;
-var additionA = 0;
-var additionB = 0;
+double addition = 0;
+double additionn = double.Epsilon;
+double additionA = 0;
+double additionB = 0;
 
-int? subtraction = 0;
-var subtractionA = 0;
-var subtractionB = 0;
+double subtraction = 0;
+double subtractionn = double.Epsilon;
+double subtractionA = 0;
+double subtractionB = 0;
 
-int? division = 0;
-var divisionA = 0;
-var divisionB = 0;
+double division = 0;
+double divisionn = double.Epsilon;
+double divisionA = 0;
+double divisionB = 0;
 
-int? multiplication = 0;
-int multiplicationA = 0;
-int multiplicationB = 0;
+double multiplication = 0;
+double multiplicationn = double.Epsilon;
+double multiplicationA = 0;
+double multiplicationB = 0;
 
-int? percent = 0;
-int percentA = 0;
-int percentB = 0;
+double percent = 0;
+double percentt = double.Epsilon;
+double percentA = 0;
+double percentB = 0;
 
-int? square = 0;
-int squareA = 0;
+double square = 0;
+double squaree = double.Epsilon;
+double squareA = 0;
 
 do
 {
@@ -41,120 +46,126 @@ do
 
     while (!int.TryParse(Console.ReadLine(), out number))
     {
-        Console.WriteLine("Ошибка, введите число!");
+        Console.WriteLine("Ошибка, введите целое число!");
     }
 
     switch (number)
     {
         case 1:
             Console.WriteLine("Введите первое число для сложения:");
-            while (!int.TryParse(Console.ReadLine(), out additionA))
+            while (!double.TryParse(Console.ReadLine(), out additionA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             Console.WriteLine("Введите второе число для сложения:");
-            while (!int.TryParse(Console.ReadLine(), out additionB))
+            while (!double.TryParse(Console.ReadLine(), out additionB))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             addition = additionA + additionB;
-            Console.WriteLine($"Результат: {addition}");
+            additionn = Math.Round(addition, 2);
+            Console.WriteLine($"Результат: {additionn}");
             break;
 
         case 2:
             Console.WriteLine("Введите первое число для вычитания:");
-            while (!int.TryParse(Console.ReadLine(), out subtractionA))
+            while (!double.TryParse(Console.ReadLine(), out subtractionA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             Console.WriteLine("Введите второе число для вычитания:");
-            while (!int.TryParse(Console.ReadLine(), out subtractionB))
+            while (!double.TryParse(Console.ReadLine(), out subtractionB))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             subtraction = subtractionA - subtractionB;
-            Console.WriteLine($"Результат: {subtraction}");
+            subtractionn = Math.Round(subtraction, 2);
+            Console.WriteLine($"Результат: {subtractionn}");
             break;
 
         case 3:
             Console.WriteLine("Введите первое число для деления:");
-            while (!int.TryParse(Console.ReadLine(), out divisionA))
+            while (!double.TryParse(Console.ReadLine(), out divisionA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             Console.WriteLine("Введите второе число для деления:");
-            while (!int.TryParse(Console.ReadLine(), out divisionB))
+            while (!double.TryParse(Console.ReadLine(), out divisionB))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             division = divisionA / divisionB;
-            Console.WriteLine($"Результат: {division}");
+            divisionn = Math.Round(division, 2);
+            Console.WriteLine($"Результат: {divisionn}");
             break;
 
         case 4:
             Console.WriteLine("Введите первое число для умножения:");
-            while (!int.TryParse(Console.ReadLine(), out multiplicationA))
+            while (!double.TryParse(Console.ReadLine(), out multiplicationA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             Console.WriteLine("Введите второе число для умножения:");
-            while (!int.TryParse(Console.ReadLine(), out multiplicationB))
+            while (!double.TryParse(Console.ReadLine(), out multiplicationB))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             multiplication = multiplicationA * multiplicationB;
-            Console.WriteLine($"Результат: {multiplication}");
+            multiplicationn = Math.Round(multiplication, 2);
+            Console.WriteLine($"Результат: {multiplicationn}");
             break;
 
         case 5:
             Console.WriteLine("Введите число, от которого хотите найти процент:");
-            while (!int.TryParse(Console.ReadLine(), out percentA))
+            while (!double.TryParse(Console.ReadLine(), out percentA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             Console.WriteLine("Введите число, для которого хотите найти процент:");
-            while (!int.TryParse(Console.ReadLine(), out percentB))
+            while (!double.TryParse(Console.ReadLine(), out percentB))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             percent = (percentB * 100) / percentA;
-            Console.WriteLine($"Результат: {percent}");
+            percentt = Math.Round(percent, 2);
+            Console.WriteLine($"Результат: {percentt}");
             break;
 
         case 6:
             Console.WriteLine("Введите число, от которого хотите получить квадратный корень:");
-            while (!int.TryParse(Console.ReadLine(), out squareA))
+            while (!double.TryParse(Console.ReadLine(), out squareA))
             {
-                Console.WriteLine("Ошибка, введите число!");
+                Console.WriteLine("Ошибка, введите число! (Например 4; 3,5)");
             }
             square = squareA * squareA;
-            Console.WriteLine($"Результат: {square}");
+            squaree = Math.Round(square, 2);
+            Console.WriteLine($"Результат: {squaree}");
             break;
 
         case 7:
-            if (addition != 0)
+            if (Math.Abs(additionn) != double.Epsilon)
             {
-                Console.WriteLine($"Результат сложения {additionA} и {additionB}: {addition}");
+                Console.WriteLine($"Результат последнего сложения {additionA} и {additionB}: {additionn}");
             }
-            if (subtraction != 0)
+            if (Math.Abs(subtractionn) != double.Epsilon)
             {
-                Console.WriteLine($"Результат вычитания {subtractionB} от {subtractionA}: {subtraction}");
+                Console.WriteLine($"Результат последнего вычитания {subtractionB} от {subtractionA}: {subtractionn}");
             }
-            if (division != 0)
+            if (Math.Abs(divisionn) != double.Epsilon)
             {
-                Console.WriteLine($"Результат деления {divisionA} на {divisionB}: {division}"); 
+                Console.WriteLine($"Результат последнего деления {divisionA} на {divisionB}: {divisionn}"); 
             }
-            if (multiplication != 0)
+            if (Math.Abs(multiplicationn) != double.Epsilon)
             {
-                Console.WriteLine($"Результат умножения {multiplicationA} на {multiplicationB}: {multiplication}");
+                Console.WriteLine($"Результат последнего умножения {multiplicationA} на {multiplicationB}: {multiplicationn}");
             }
-            if (percent != 0)
+            if (Math.Abs(percentt) != double.Epsilon)
             {
-                Console.WriteLine($"Результат нахождения процента {percentB} от {percentA}: {percent}");
+                Console.WriteLine($"Результат последнего нахождения процента {percentB} от {percentA}: {percentt}");
             }
-            if (square != 0)
+            if (Math.Abs(squaree) != double.Epsilon)
             {
-                Console.WriteLine($"Результат нахождения квадрата числа {squareA}: {square}");
+                Console.WriteLine($"Результат последнего нахождения квадрата числа {squareA}: {squaree}");
             }
             break;
              
@@ -168,11 +179,11 @@ do
         Console.WriteLine("Желаете продолжить? (да/нет)");
         al = (Console.ReadLine());
         
-        if (al == "да")
+        if (al == "да" || al == "Да" || al == "Д" || al == "д"|| al == "y" || al == "Y" || al == "yes" || al == "Yes")
         {
-            continue;
+            break;
         }
-        else if (al == "нет")
+        else if (al == "нет" || al == "Нет" || al == "Н" || al == "н" || al == "N" || al == "n" || al == "No" || al == "no")
         {
             return;
         }
@@ -181,8 +192,8 @@ do
             Console.WriteLine("Напишите да или нет.");
            
         }
-    } while (al != "да");
+    } while (true);
     
-} while (qw);
+} while (true);
 
 
