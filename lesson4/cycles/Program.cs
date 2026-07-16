@@ -106,9 +106,17 @@
                 for(int j = 0; j < m; j++)
                 {
                     arr[i, j] = rnd.Next(-9, 9);
-                    Console.WriteLine(arr[i, j]);
+                    Console.Write("|");
+                    Console.Write(string.Format("{0,5}", arr[i, j]));
+                    
                 }
+
+                Console.Write("|");
+                Console.WriteLine();
             }
+
+            
+
 
 
             break;
