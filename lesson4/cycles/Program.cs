@@ -139,7 +139,7 @@
             Console.WriteLine("");
             Console.WriteLine($"Отрицательные значения: {countM} \nПоложительные значения: {countP}");
             Console.WriteLine("");
-            Console.WriteLine("Вывод матрицы (в нечетных строках только нечетные значения, в четных - только четные");
+            Console.WriteLine("Вывод матрицы (в нечетных строках только нечетные значения, в четных - только четные)");
 
             for (int i = 0; i < n; i++)
             {
@@ -176,6 +176,33 @@
                 Console.Write("|");
                 Console.WriteLine();
             }
+
+            Dictionary<int, int> counts = [];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    int value = arr[i, j];
+
+                    if (counts.ContainsKey(value))
+                    {
+                        counts[value]++;
+                    }
+                    else
+                    {
+                        counts[value] = 1;
+                    }
+                }
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Количество повторяющихся значений:");
+            foreach (var pair in counts)
+            {
+                Console.WriteLine($"{pair.Key}: {pair.Value} раз");
+            }
+
 
             Console.WriteLine("\n");
 
