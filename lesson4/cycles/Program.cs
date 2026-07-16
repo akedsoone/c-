@@ -1,10 +1,12 @@
 ﻿do
 {
-    Console.WriteLine("Циклы");
+    Console.WriteLine("Циклы, матрицы");
     Console.WriteLine("1 Необходимо вывести на экран числа от N до 1.");
     Console.WriteLine("2 Необходимо, чтоб программа выводила на экран вот такую последовательность : 7 14 21 28 42 49….");
     Console.WriteLine("3 Вывод последовательности Фибоначчи");
-    Console.WriteLine("4 Выход из программы");
+    Console.WriteLine("4 Создать матрицуб найти кол-во отрицательных и положительных значений, вывод новой матрицы (в нечетных строках только нечетные значения, в четных - только четные), вывод количества повторяющихся значений");
+    Console.WriteLine("5 Создать лист");
+    Console.WriteLine("6 Выход из программы");
 
     int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -36,8 +38,8 @@
 
             for (int i = 1; i <= N2; i++)
             {
-                int n = i * 7;
-                Console.Write(n);
+                int a = i * 7;
+                Console.Write(a);
                 Console.Write(" ");
             }
             Console.WriteLine("\n");
@@ -47,7 +49,7 @@
         case 3:
             Console.WriteLine("Вывод последовательности Фибоначчи");
 
-            List<int> list = new();
+            List<int> list = [];
 
             Console.WriteLine("Введите число N");
             int N3 = Convert.ToInt32(Console.ReadLine()) - 1;
@@ -61,9 +63,9 @@
                     list.Add(i);
                     continue;
                 }
-                int n = list[i - 1] + list[i - 2];
-                list.Add(n);
-                Console.Write($"{n} ");
+                int b = list[i - 1] + list[i - 2];
+                list.Add(b);
+                Console.Write($"{b} ");
 
             }
             Console.WriteLine("\n");
@@ -71,10 +73,242 @@
             break;
 
         case 4:
+            Console.WriteLine("Введите количество строк в матрице (не более 6):");
+          
+            if (int.TryParse(Console.ReadLine(), out int n) && n > 0 && n <= 6)
+            {
+                
+            }
+            else
+            {
+                Console.WriteLine("Ошибка, введите число от 1 до 6.");
+                return;
+            }
+
+            Console.WriteLine("Введите количество столбцов в матрице (не более 6):");
+
+            if (int.TryParse(Console.ReadLine(), out int m) && m > 0 && m <= 6)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Ошибка, введите число от 1 до 6.");
+                return;
+            }
+
+
+            int[,] arr = new int[n, m];
+            int countM = 0;
+            int countP = 0;
+            Random rnd = new();
+
+            Console.WriteLine();
+            Console.WriteLine("Матрица:");
+
+            for(int i = 0; i < n; i++)
+            {
+                for(int j = 0; j < m; j++)
+                {
+                    arr[i, j] = rnd.Next(-9, 9);
+                    Console.Write("|");
+                    Console.Write(string.Format("{0,5}", arr[i, j]));
+
+                    if (arr[i, j] < 0)
+                    {
+                        countM++;
+                    }
+                    else if (arr[i, j] > 0)
+                    {
+                        countP++;
+                    }
+                }
+
+                Console.Write("|");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine($"Отрицательные значения: {countM} \nПоложительные значения: {countP}");
+            Console.WriteLine("");
+            Console.WriteLine("Вывод матрицы (в нечетных строках только нечетные значения, в четных - только четные)");
+
+            Dictionary<int, int> counts = [];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+
+                    int value = arr[i, j];
+
+                    if (counts.ContainsKey(value))
+                    {
+                        counts[value]++;
+                    }
+                    else
+                    {
+                        counts[value] = 1;
+                    }
+
+                    if (i % 2 != 0)
+                    {
+                        if(arr[i, j] % 2 != 0)
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", arr[i, j]));
+                        }
+                        else
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", 0));
+                        }
+
+                    }
+                    else if (i % 2 == 0)
+                    {
+                        if (arr[i, j] % 2 == 0)
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", arr[i, j]));
+                        }
+                        else
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", 0));
+                        }
+                    }
+                }
+                Console.Write("|");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Количество повторяющихся значений:");
+            foreach (var pair in counts)
+            {
+                Console.WriteLine($"{pair.Key}: {pair.Value} раз");
+            }
+
+
+            Console.WriteLine("\n");
+
+            break;
+
+        case 5:
+            Console.WriteLine("Введите размер листа:");
+            int M = Convert.ToInt32(Console.ReadLine());
+            List<int> LIST = new List<int>(M);
+            Random rand = new();
+
+
+            for (int i = 0; i < M; i++)
+            {
+                int li = rand.Next(1, 25);
+                LIST.Add(li);
+            }
+
+            int nomerlist = 0;
+            
+            do
+            {
+                Console.WriteLine("1 Вывести лист");
+                Console.WriteLine("2 Добавить значение");
+                Console.WriteLine("3 Удалить значение");
+                Console.WriteLine("4 Заменить каждый четный элемент на удвоенное значение, я нечетный на 0");
+                Console.WriteLine("5 Cоздать HashSet и вывести его");
+                Console.WriteLine("6 Выйти");
+
+                nomerlist = Convert.ToInt32(Console.ReadLine());
+
+                switch (nomerlist)
+                {
+                    case 1:
+                        foreach (int li in LIST)
+                        {
+                            Console.Write($"{li} ");
+                        }
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Введите значение, которое хотите добавить:");
+                        int addlist = Convert.ToInt32(Console.ReadLine());
+                        LIST.Add(addlist);
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Введите индекс значения, которое хотите удалить:");
+                        int removelist = Convert.ToInt32(Console.ReadLine());
+                        LIST.RemoveAt(removelist);
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                        break;
+
+                    case 4:
+                        for (int i = 0; i < M; i++)
+                        {
+                            if (LIST[i] % 2 == 0)
+                            {
+                                LIST[i] = LIST[i] * 2;
+                                Console.Write($"{LIST[i]} ");
+                            }
+                            else
+                            {
+                                LIST[i] = 0;
+                                Console.Write($"{LIST[i]} ");
+                            }
+                        }
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                        break;
+
+                    case 5:
+                        var hashSet = new HashSet<int>();
+                        for (int i = 0; i < M; i++)
+                        {
+                            hashSet.Add(LIST[i]);
+                        }
+
+                        foreach(int i in hashSet)
+                        {
+                            Console.Write($"{i} ");
+                        }
+
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Введите число от 1 до 3!");
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                        break;
+                }
+            } while (nomerlist != 6);
+                
+
+            Console.WriteLine("\n");
+
+
+            break;
+
+        case 6:
             return;
 
         default:
-            Console.WriteLine("Выбери задание от 1 до 3.");
+            Console.WriteLine("Выбери задание от 1 до 6.");
             Console.WriteLine("\n");
 
             break;
