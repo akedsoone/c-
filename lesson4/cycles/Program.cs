@@ -115,9 +115,25 @@
                 Console.WriteLine();
             }
 
-            
+            int countM = 0;
+            int countP = 0;
 
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    if (arr[i, j] < 0)
+                    {
+                        countM++;
+                    } 
+                    else if (arr[i, j] > 0)
+                    {
+                        countP++;
+                    }
+                }
+            }
 
+            Console.WriteLine($"Отрицательные: {countM} \nПоложительные: {countP}");
 
             break;
 
