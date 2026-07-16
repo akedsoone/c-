@@ -98,7 +98,8 @@
 
 
             int[,] arr = new int[n, m];
-
+            int countM = 0;
+            int countP = 0;
             Random rnd = new();
 
             Console.WriteLine();
@@ -111,29 +112,19 @@
                     arr[i, j] = rnd.Next(-9, 9);
                     Console.Write("|");
                     Console.Write(string.Format("{0,5}", arr[i, j]));
-                    
-                }
 
-                Console.Write("|");
-                Console.WriteLine();
-            }
-
-            int countM = 0;
-            int countP = 0;
-
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < m; j++)
-                {
                     if (arr[i, j] < 0)
                     {
                         countM++;
-                    } 
+                    }
                     else if (arr[i, j] > 0)
                     {
                         countP++;
                     }
                 }
+
+                Console.Write("|");
+                Console.WriteLine();
             }
 
             Console.WriteLine("");
@@ -141,10 +132,24 @@
             Console.WriteLine("");
             Console.WriteLine("Вывод матрицы (в нечетных строках только нечетные значения, в четных - только четные)");
 
+            Dictionary<int, int> counts = [];
+
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
                 {
+
+                    int value = arr[i, j];
+
+                    if (counts.ContainsKey(value))
+                    {
+                        counts[value]++;
+                    }
+                    else
+                    {
+                        counts[value] = 1;
+                    }
+
                     if (i % 2 != 0)
                     {
                         if(arr[i, j] % 2 != 0)
@@ -177,24 +182,6 @@
                 Console.WriteLine();
             }
 
-            Dictionary<int, int> counts = [];
-
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < m; j++)
-                {
-                    int value = arr[i, j];
-
-                    if (counts.ContainsKey(value))
-                    {
-                        counts[value]++;
-                    }
-                    else
-                    {
-                        counts[value] = 1;
-                    }
-                }
-            }
             Console.WriteLine();
 
             Console.WriteLine("Количество повторяющихся значений:");
