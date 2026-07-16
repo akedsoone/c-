@@ -26,6 +26,14 @@ switch (choice)
 
     case 2:
         Console.WriteLine("Необходимо, чтоб программа выводила на экран вот такую последовательность : 7 14 21 28 42 49….");
+
+        for(int i = 1; i<=10; i++)
+        {
+            int n = i * 7;
+            Console.Write(n);
+            Console.Write(" ");
+        }
+
         break;
 
     case 3:
