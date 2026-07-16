@@ -48,7 +48,7 @@
         case 3:
             Console.WriteLine("Вывод последовательности Фибоначчи");
 
-            List<int> list = new();
+            List<int> list = [];
 
             Console.WriteLine("Введите число N");
             int N3 = Convert.ToInt32(Console.ReadLine()) - 1;
@@ -99,7 +99,10 @@
 
             int[,] arr = new int[n, m];
 
-            Random rnd = new Random();
+            Random rnd = new();
+
+            Console.WriteLine();
+            Console.WriteLine("Матрица:");
 
             for(int i = 0; i < n; i++)
             {
@@ -133,7 +136,48 @@
                 }
             }
 
-            Console.WriteLine($"Отрицательные: {countM} \nПоложительные: {countP}");
+            Console.WriteLine("");
+            Console.WriteLine($"Отрицательные значения: {countM} \nПоложительные значения: {countP}");
+            Console.WriteLine("");
+            Console.WriteLine("Вывод матрицы (в нечетных строках только нечетные значения, в четных - только четные");
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    if (i % 2 != 0)
+                    {
+                        if(arr[i, j] % 2 != 0)
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", arr[i, j]));
+                        }
+                        else
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", 0));
+                        }
+
+                    }
+                    else if (i % 2 == 0)
+                    {
+                        if (arr[i, j] % 2 == 0)
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", arr[i, j]));
+                        }
+                        else
+                        {
+                            Console.Write("|");
+                            Console.Write(string.Format("{0,5}", 0));
+                        }
+                    }
+                }
+                Console.Write("|");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("\n");
 
             break;
 
