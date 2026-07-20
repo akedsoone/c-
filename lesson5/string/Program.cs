@@ -1,0 +1,2 @@
+﻿string text = "Wow! This is my 1st tsest. Do you see number42? Yes! \r\nOtto ran to room101. Anna loves level99. \r\nAre you ready? No, I am not! \r\nThis sentence has no comma. But this one, definitely has a comma, right? \r\nHey! Look at Bob — he found 777 coins! \r\nIs 12345 the longest digit-word? Maybe! \r\nOtto said: \"Wow!\" Anna replied: \"Yes!\" \r\nFinal test. Done!";
+Console.WriteLine(text);
