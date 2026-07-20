@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 string text = "Wow! This is my 1st tsest. Do you see number42? Yes! \r\nOtto ran to room101. Anna loves level99. \r\nAre you ready? No, I am not! \r\nThis sentence has no comma. But this one, definitely has a comma, right? \r\nHey! Look at Bob — he found 777 coins! \r\nIs 12345 the longest digit-word? Maybe! \r\nOtto said: \"Wow!\" Anna replied: \"Yes!\" \r\nFinal test. Done!";
 Console.WriteLine(text);
@@ -49,44 +50,87 @@ do
 
             break;
         case 2:
-            int count = 0;
-            int maxCount = 0;
-            string maxWord = "";
-            List<string> maxWords = new List<string>();
-            foreach (string word in wordsclean)
             {
-                foreach (char c in word)
+                int count = 0;
+                int maxCount = 0;
+                string maxWord = "";
+                List<string> maxWords = new List<string>();
+                foreach (string word in wordsclean)
                 {
-                    if (char.IsDigit(c))
+                    foreach (char c in word)
                     {
-                        count++;
+                        if (char.IsDigit(c))
+                        {
+                            count++;
+                        }
                     }
+                    if (count > maxCount)
+                    {
+                        maxCount = count;
+                        maxWords.Clear();
+                        maxWord = word;
+                        maxWords.Add(maxWord);
+                    }
+                    else if (count == maxCount && count > 0)
+                    {
+                        maxWords.Add(word);
+                    }
+                    count = 0;
                 }
-                if (count > maxCount)
+
+                Console.WriteLine("Максимально цифр: ");
+                foreach (string max in maxWords)
                 {
-                    maxCount = count;
-                    maxWords.Clear();
-                    maxWord = word;
-                    maxWords.Add(maxWord);
+                    Console.Write($"{max} ");
+
                 }
-                else if (count == maxCount && count > 0)
-                {
-                    maxWords.Add(word);
-                }
-                count = 0;
+                Console.WriteLine("\n");
             }
 
-            Console.WriteLine("Максимально цифр: ");
-            foreach (string max in maxWords)
-            {
-                Console.Write($"{max} "); 
-
-            }
-            Console.WriteLine("\n");
             break;
 
         case 3:
+            {
+                int count = 0;
+                int lenght = 0;
+                int maxlenght = 0;
+                string maxWord = "";
+                List<string> maxWords = new List<string>();
 
+                foreach (string word in wordsclean)
+                {
+                    lenght = word.Length;
+                    if (lenght > maxlenght)
+                    {
+                        maxlenght = lenght;
+                        maxWords.Clear();
+                        maxWord = word;
+                        maxWords.Add(maxWord);
+                    } else if (lenght == maxlenght &&  lenght > 0)
+                    {
+                        if (!maxWords.Contains(word))
+                        {
+                            maxWord = word;
+                            maxWords.Add(maxWord);
+                        }
+                    }
+
+                }
+                foreach (string max in maxWords)
+                {
+                    count = 0;
+                    foreach (string word in wordsclean)
+                    {
+                        if (word == max)
+                        {
+                            count++;
+                        }
+                    }
+                    Console.WriteLine($"{max} — встретилось {count} раз(а)");
+                }
+
+            }
+            
             break;
 
         case 4:
