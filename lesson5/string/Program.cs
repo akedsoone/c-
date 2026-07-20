@@ -130,11 +130,64 @@ do
                 }
 
             }
-            
+                Console.WriteLine("\n");
+
             break;
 
         case 4:
-
+            foreach (string word in wordsclean)
+            {
+                string newWord = "";
+                foreach (char c in word)
+                {
+                    if (char.IsLetter(c))
+                    {
+                        newWord += c;
+                    } else if (c == '0')
+                    {
+                        newWord += " ноль ";
+                    }
+                    else if (c == '1')
+                    {
+                        newWord += " один ";
+                    }
+                    else if (c == '2')
+                    {
+                        newWord += " два ";
+                    }
+                    else if (c == '3')
+                    {
+                        newWord += " три ";
+                    }
+                    else if (c =='4')
+                    {
+                        newWord += " четыре ";
+                    }
+                    else if (c == '5')
+                    {
+                        newWord += " пять ";
+                    }
+                    else if (c == '6')
+                    {
+                        newWord += " шесть ";
+                    }
+                    else if (c == '7')
+                    {
+                        newWord += " семь ";
+                    }
+                    else if (c == '8')
+                    {
+                        newWord += " восемь ";
+                    }
+                    else if (c == '9')
+                    {
+                        newWord += " девять ";
+                    }
+                }
+                Console.WriteLine(newWord);
+            }
+            
+            Console.WriteLine("\n");
             break;
 
         case 5:
