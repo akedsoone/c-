@@ -191,12 +191,6 @@ do
             break;
 
         case 5:
-            
-            string[] newS = Regex.Split(text, @"[!?.]+");
-            foreach(string s in newS)
-            {
-                Console.WriteLine(s);
-            }
 
             break;
 
