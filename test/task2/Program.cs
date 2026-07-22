@@ -1,6 +1,6 @@
 ﻿class Person
 {
-    public int age;
+    protected int age;
 
     public void Greet()
     {
